@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Копировальный центр "КопиЛайн" | Услуги печати и фото</title>
+    <meta name="description" content="Копировальный центр КопиЛайн: печать, копирование, сканирование, ламинирование, брошюровка, фото на документы. Быстро, качественно, доступно.">
+    <!-- Подключаем шрифт Montserrat для стиля -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #0099ff;
+            --dark-blue: #0055aa;
+            --magenta: #e6007e;
+            --yellow: #ffcc00;
+            --green: #00a651;
+            --orange: #ff8c00;
+            --purple: #7a3c9c;
+            --dark: #1a1a1a;
+            --light-bg: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 4px solid var(--blue);
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .logo-text span {
+            color: var(--blue);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .sub-tagline {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* Слоган */
+        .slogan-banner {
+            background-color: var(--blue);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 153, 255, 0.2);
+        }
+
+        /* Секции */
+        section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--magenta);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Карточки услуг */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--blue);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card h3 svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--blue);
+        }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: var(--light-bg);
+            color: var(--dark);
+            font-weight: 600;
+            text-align: left;
+            padding: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-highlight {
+            color: var(--magenta);
+            font-weight: 700;
+        }
+
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Контакты */
+        .contacts-section {
+            background-color: var(--light-bg);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            border: 2px dashed var(--blue);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--magenta);
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--dark);
+            min-width: 120px;
+            text-align: left;
+        }
+
+        .contact-value {
+            text-align: left;
+        }
+
+        .btn-telegram {
+            display: inline-block;
+            background-color: #0088cc;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .btn-telegram:hover {
+            background-color: #006699;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: var(--dark);
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .logo-text { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-item { flex-direction: column; text-align: center; gap: 5px; }
+            .contact-label { text-align: center; min-width: auto; }
+            .contact-value { text-align: center; }
+            .contacts-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="logo-text">Копи<span>Лайн</span></div>
+            <div class="tagline">— КОПИРОВАЛЬНЫЙ ЦЕНТР —</div>
+            <div class="sub-tagline">Больше, чем просто копии!</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="slogan-banner">
+            Быстро! Качественно! Удобно!
+        </div>
+    </div>
+
+    <!-- Услуги и Цены -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги и цены</h2>
+            
+            <div class="services-grid">
+                
+                <!-- Фото на документы -->
+                <div class="service-card" style="border-top-color: var(--magenta);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+                        Фото на документы
+                    </h3>
+                    <table>
+                        <tr><th>Количество</th><th>Цена</th></tr>
+                        <tr><td>Комплект 4 шт.</td><td class="price-highlight">250 ₽</td></tr>
+                        <tr><td>Комплект 6 шт.</td><td class="price-highlight">300 ₽</td></tr>
+                    </table>
+                </div>
+
+                <!-- Фотопечать -->
+                <div class="service-card" style="border-top-color: var(--blue);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        Фотопечать (стандарт)
+                    </h3>
+                    <table>
+                        <tr><th>Формат</th><th>1-10 шт.</th><th>10-50 шт.</th><th>50+ шт.</th></tr>
+                        <tr><td>А6</td><td>30 ₽</td><td>25 ₽</td><td>20 ₽</td></tr>
+                        <tr><td>А5</td><td>60 ₽</td><td>50 ₽</td><td>40 ₽</td></tr>
+                        <tr><td>А4</td><td>100 ₽</td><td>—</td><td>—</td></tr>
+                        <tr><td>А3</td><td>180 ₽</td><td>—</td><td>—</td></tr>
+                    </table>
+                </div>
+
+                <!-- Фотопечать на самоклейке -->
+                <div class="service-card" style="border-top-color: var(--green);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
+                        Фотопечать на самоклеящейся бумаге
+                    </h3>
+                    <table>
+                        <tr><th>Тип бумаги</th><th>Формат</th><th>Цена</th></tr>
+                        <tr><td>Матовая / глянцевая</td><td>А4</td><td class="price-highlight">150 ₽</td></tr>
+                        <tr><td>Матовая / глянцевая</td><td>А3</td><td class="price-highlight">250 ₽</td></tr>
+                        <tr><td>Прозрачная</td><td>А4</td><td class="price-highlight">400 ₽</td></tr>
+                    </table>
+                </div>
+
+                <!-- Печать -->
+                <div class="service-card" style="border-top-color: var(--magenta);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                        Печать
+                    </h3>
+                    <table>
+                        <tr><th>Формат</th><th>Ч/Б</th><th>Цветная</th></tr>
+                        <tr><td>А4</td><td>10 ₽/лист</td><td class="price-highlight">20 ₽/лист</td></tr>
+                        <tr><td>А3</td><td>25 ₽/лист</td><td>—</td></tr>
+                    </table>
+                </div>
+
+                <!-- Копирование -->
+                <div class="service-card" style="border-top-color: var(--blue);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        Копирование (ксерокопия)
+                    </h3>
+                    <table>
+                        <tr><th>Формат</th><th>Ч/Б</th><th>Цветное</th></tr>
+                        <tr><td>А4</td><td>10 ₽/лист</td><td class="price-highlight">20 ₽/лист</td></tr>
+                    </table>
+                </div>
+
+                <!-- Сканирование -->
+                <div class="service-card" style="border-top-color: var(--green);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
+                        Сканирование (PDF/JPG)
+                    </h3>
+                    <table>
+                        <tr><th>Формат</th><th>Ч/Б</th><th>Цветное</th></tr>
+                        <tr><td>А4</td><td>10 ₽/лист</td><td class="price-highlight">20 ₽/лист</td></tr>
+                        <tr><td>А3</td><td>20 ₽/лист</td><td class="price-highlight">30 ₽/лист</td></tr>
+                    </table>
+                </div>
+
+                <!-- Ламинирование -->
+                <div class="service-card" style="border-top-color: var(--orange);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h10v2H7z"/></svg>
+                        Ламинирование
+                    </h3>
+                    <table>
+                        <tr><th>Формат</th><th>80 мкм</th><th>125 мкм</th><th>250 мкм</th></tr>
+                        <tr><td>А5</td><td>40 ₽</td><td>60 ₽</td><td>140 ₽</td></tr>
+                        <tr><td>А4</td><td>50 ₽</td><td>80 ₽</td><td>180 ₽</td></tr>
+                        <tr><td>А3</td><td>100 ₽</td><td>130 ₽</td><td>230 ₽</td></tr>
+                    </table>
+                </div>
+
+                <!-- Брошюровка -->
+                <div class="service-card" style="border-top-color: var(--purple);">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                        Брошюровка
+                    </h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">(Обложка и пружина включены в стоимость)</p>
+                    <table>
+                        <tr><th>Количество листов</th><th>Цена</th></tr>
+                        <tr><td>От 1 до 100 листов</td><td class="price-highlight">200 ₽</td></tr>
+                        <tr><td>От 100 листов и более</td><td class="price-highlight">250 ₽</td></tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Фотогалерея -->
+    <section id="gallery" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">Наша студия</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #555;">Современное оборудование и уютная атмосфера для качественной печати и фотосъемки.</p>
+            <div class="gallery">
+                <!-- Замените ссылки на ваши реальные фото, загруженные в репозиторий -->
+                <img src="printer.jpg" alt="Печатное оборудование">
+                <img src="studio.jpg" alt="Фотостудия">
+                <img src="desktop.jpg" alt="Рабочее место">
+                <img src="office.jpg" alt="Офис">
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts">
+        <div class="container">
+            <h2 class="section-title">Как с нами связаться</h2>
+            <div class="contacts-section">
+                <p style="font-size: 1.1rem; margin-bottom: 25px;">Вы можете отправить нам файлы любым удобным способом:</p>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">✉</div>
+                    <div class="contact-label">Эл. почта:</div>
+                    <div class="contact-value"><a href="mailto:copyline_center@mail.ru">copyline_center@mail.ru</a></div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-label">Макс:</div>
+                    <div class="contact-value"><a href="tel:+79293680565">+7 929 368 05 65</a></div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✈</div>
+                    <div class="contact-label">Telegram бот:</div>
+                    <div class="contact-value"><a href="https://t.me/CopyLine_center_bot" target="_blank">@CopyLine_center_bot</a></div>
+                </div>
+
+                <a href="https://t.me/CopyLine_center_bot" class="btn-telegram" target="_blank">Написать в Telegram</a>
+                
+                <p style="margin-top: 30px; font-size: 0.9rem; color: #777;">Будем рады вашим файлам!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Копировальный центр "КопиЛайн". Все права защищены.</p>
+            <p>Сайт создан для размещения на GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <!-- Простой скрипт для плавного скролла (опционально) -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
